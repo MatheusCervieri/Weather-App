@@ -20,7 +20,7 @@ button.addEventListener('click', ()=> {
 });
 
 const fetchWeatherApi = async () => {
-
+    try {
     let res = await fetch(finalurl,  {
         mode: 'cors'
     });
@@ -30,6 +30,10 @@ const fetchWeatherApi = async () => {
     citydiv.textContent = "City: " + data.name;
     tempdiv.textContent = "Temperature: " + data.main.temp;
     statusdiv.textContent = "Status: " + data.weather[0].description;
+    }
+    catch (error){
+        console.log("ERROR");
+    }
     /*
     cityname = await data.name;
     citytemp = await data.temp;
